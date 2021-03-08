@@ -2,28 +2,28 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Objects;
 
-public class BuildersBrigade {
-    private final HashSet<ConstructionWorker> listBuilders = new HashSet<>();
+public class WorkersBrigade {
+    private final HashSet<ConstructionWorker> listWorkers = new HashSet<>();
 
-    public HashSet<ConstructionWorker> getListBuilders() {
-        return listBuilders;
+    public HashSet<ConstructionWorker> getListWorkers() {
+        return listWorkers;
     }
 
     public void addConstructionWorker(ConstructionWorker constructionWorker) {
-        this.listBuilders.add(constructionWorker);
+        this.listWorkers.add(constructionWorker);
     }
 
-    public ArrayList<ProfessionalSkills> getBuildersBrigadeProfessions() {
+    public ArrayList<ProfessionalSkills> getWorkersBrigadeProfessions() {
         ArrayList<ProfessionalSkills> buildersBrigadeProfessions = new ArrayList<>();
-        for (ConstructionWorker constructionWorker : listBuilders) {
+        for (ConstructionWorker constructionWorker : listWorkers) {
             buildersBrigadeProfessions.addAll(constructionWorker.getWorkerProfessionalSkillsSet());
         }
         return buildersBrigadeProfessions;
     }
 
-    public double getBuildersBrigadeSalary() {
+    public double getWorkersBrigadeSalary() {
         double summa = 0;
-        for (ConstructionWorker constructionWorker : listBuilders) {
+        for (ConstructionWorker constructionWorker : listWorkers) {
             summa += constructionWorker.getSalary();
         }
         return summa;
@@ -32,20 +32,20 @@ public class BuildersBrigade {
     @Override
     public boolean equals(Object object) {
         if (this == object) return true;
-        if (!(object instanceof BuildersBrigade)) return false;
-        BuildersBrigade that = (BuildersBrigade) object;
-        return getListBuilders().equals(that.getListBuilders());
+        if (!(object instanceof WorkersBrigade)) return false;
+        WorkersBrigade that = (WorkersBrigade) object;
+        return getListWorkers().equals(that.getListWorkers());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getListBuilders());
+        return Objects.hash(getListWorkers());
     }
 
     @Override
     public String toString() {
         return "BuildersBrigade{" +
-                "listBuilders=" + listBuilders +
+                "listBuilders=" + listWorkers +
                 '}';
     }
 }
