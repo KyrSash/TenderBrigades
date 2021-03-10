@@ -1,22 +1,24 @@
 import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
-public class ConstructionWorker {
+public class Worker {
     private double salary;
-    private HashSet<ProfessionalSkills> workerProfessionalSkillsSet = new HashSet<>();
+    private Set<ProfessionalSkills> workerProfessionalSkillsSet = new HashSet<>();
 
-    public ConstructionWorker() {
+    public Worker() {
     }
 
-    public ConstructionWorker(double salary) {
+    public Worker(double salary, Set<ProfessionalSkills> workerProfessionalSkillsSet) {
         this.salary = salary;
+        this.workerProfessionalSkillsSet = workerProfessionalSkillsSet;
     }
 
     public double getSalary() {
         return salary;
     }
 
-    public HashSet<ProfessionalSkills> getWorkerProfessionalSkillsSet() {
+    public Set<ProfessionalSkills> getWorkerProfessionalSkillsSet() {
         return workerProfessionalSkillsSet;
     }
 
@@ -36,7 +38,7 @@ public class ConstructionWorker {
     public boolean equals(Object object) {
         if (this == object) return true;
         if (object == null || getClass() != object.getClass()) return false;
-        ConstructionWorker that = (ConstructionWorker) object;
+        Worker that = (Worker) object;
         return Double.compare(that.salary, salary) == 0 && workerProfessionalSkillsSet.equals(that.workerProfessionalSkillsSet);
     }
 
@@ -47,7 +49,7 @@ public class ConstructionWorker {
 
     @Override
     public String toString() {
-        return "ConstructionWorker{" +
+        return "Worker{" +
                 "salary=" + salary +
                 ", workerProfessionalSkillsSet=" + workerProfessionalSkillsSet +
                 '}';

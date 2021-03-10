@@ -3,28 +3,20 @@ import java.util.HashSet;
 import java.util.Objects;
 
 public class WorkersBrigade {
-    private final HashSet<ConstructionWorker> listWorkers = new HashSet<>();
+    private final HashSet<Worker> listWorkers = new HashSet<>();
 
-    public HashSet<ConstructionWorker> getListWorkers() {
+    public HashSet<Worker> getListWorkers() {
         return listWorkers;
     }
 
-    public void addConstructionWorker(ConstructionWorker constructionWorker) {
-        this.listWorkers.add(constructionWorker);
-    }
-
-    public ArrayList<ProfessionalSkills> getWorkersBrigadeProfessions() {
-        ArrayList<ProfessionalSkills> buildersBrigadeProfessions = new ArrayList<>();
-        for (ConstructionWorker constructionWorker : listWorkers) {
-            buildersBrigadeProfessions.addAll(constructionWorker.getWorkerProfessionalSkillsSet());
-        }
-        return buildersBrigadeProfessions;
+    public void addWorker(Worker worker) {
+        this.listWorkers.add(worker);
     }
 
     public double getWorkersBrigadeSalary() {
         double summa = 0;
-        for (ConstructionWorker constructionWorker : listWorkers) {
-            summa += constructionWorker.getSalary();
+        for (Worker worker : listWorkers) {
+            summa += worker.getSalary();
         }
         return summa;
     }
