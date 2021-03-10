@@ -46,4 +46,25 @@ public class Tender {
         tenderWorkersBrigade.sort(Comparator.comparing(WorkersBrigade::getWorkersBrigadeSalary));
         return tenderWorkersBrigade.get(0);
     }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (!(object instanceof Tender)) return false;
+        Tender tender = (Tender) object;
+        return getSkills().equals(tender.getSkills()) && getTenderWorkersBrigade().equals(tender.getTenderWorkersBrigade());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getSkills(), getTenderWorkersBrigade());
+    }
+
+    @Override
+    public String toString() {
+        return "Tender{" +
+                "skills=" + skills +
+                ", tenderWorkersBrigade=" + tenderWorkersBrigade +
+                '}';
+    }
 }
